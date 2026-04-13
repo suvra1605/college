@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soa portal</title>
+
+<style>
+body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    font-family:Arial;
+}
+
+input{
+    margin-bottom:10px;
+    width:200px;
+    padding:8px;
+}
+
+button{
+    padding:8px 10px;
+    background-color:rgb(95, 203, 239);
+    color:white;
+    border:none;
+    cursor:pointer;
+    width:200px;
+    height:35px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+button:hover{
+    background-color:#0284c7;
+    transform:scale(1.05);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+</style>
+</head>
+
+<body>
+
+<h2>SIGN IN TO YOUR ACCOUNT</h2>
+
+<div>
+    <input type="radio" id="student" name="userType" value="student">
+    <label for="student">Student</label>
+</div>
+
+<div>
+    <label>User ID</label><br>
+    <input type="text" id="userId">
+</div>
+
+
+</div>
+
+<button onclick="login()">LOGIN</button>
+
+<script>
+function login(){
+    let userId = document.getElementById("userId").value.trim();
+
+    if(userId === ""){
+        alert("Please enter User ID ❌");
+    } else {
+        // Redirect only if userId is filled
+        window.location.href = "secondpage.html";
+    }
+}
+</script>
+
+</body>
+</html>
