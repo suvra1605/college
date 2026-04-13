@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Password Gate</title>
+
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .container{
+        background-color: white;
+        padding: 20px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    input{
+        padding: 10px;
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button{
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #0056b3;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Enter Password</h2>
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <br>
+    <button id="btn">Enter</button>
+</div>
+
+<script>
+const password = document.getElementById('password');
+const btn = document.getElementById('btn');
+
+btn.onclick = function(){
+
+    let value = password.value.trim();
+
+    if(value === "iter2025"){
+        alert("Welcome Suvra kanta patra");
+        window.location.href = "suvra.html";
+    } 
+    else if(value === "smarak2025"){
+        alert("Welcome Smarak satya prakash Dash ");
+        window.location.href = "smarak.html";
+    }
+    else{
+        alert("Wrong Password ❌");
+    }
+}
+
+// Enter key support
+password.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        btn.click();
+    }
+});
+</script>
+
+</body>
+</html>
