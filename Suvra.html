@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suvra Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    display:flex;
+    background:#ffffff;
+    color:#111;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#1e293b;
+    color:white;
+    position:fixed;
+    left:-250px;
+    top:0;
+    transition:0.3s;
+    padding-top:20px;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.sidebar h2{
+    text-align:center;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar ul li{
+    padding:15px;
+    cursor:pointer;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.sidebar ul li:hover{
+    background:#334155;
+}
+
+/* Main */
+.main{
+    margin-left:0;
+    padding:20px;
+    width:100%;
+    transition:0.3s;
+}
+
+.main.shift{
+    margin-left:250px;
+}
+
+/* Button */
+.menu-btn{
+    font-size:25px;
+    cursor:pointer;
+    background:#1e293b;
+    color:white;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+}
+
+/* Card */
+.card{
+    background:#f1f5f9;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    color:#111;
+}
+
+/* Button Style */
+button{
+    padding:10px 20px;
+    border-radius:25px;
+    border:2px solid #1e293b;
+    background:transparent;
+    color:#1e293b;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1e293b;
+    color:white;
+    transform:scale(1.1);
+}
+
+button:active{
+    transform:scale(0.9);
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .main.shift{
+        margin-left:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li onclick="showSection('home')">🏠 Home</li>
+        <li onclick="showSection('personal')">👤 Personal Details</li>
+        <li onclick="showSection('result')">📊 Student Result</li>
+    </ul>
+</div>
+
+<!-- Main -->
+<div class="main" id="main">
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <h1>Welcome Suvra Kanta Patra</h1>
+
+    <!-- Home -->
+    <div id="home" class="card">
+        <h2>Home</h2>
+        <p>This is your personal dashboard 🚀</p>
+    </div>
+
+    <!-- Personal Details -->
+    <div id="personal" class="card" style="display:none;">
+        <h2>Personal Details</h2>
+        <p><b>Name:</b> Suvra Kanta Patra</p>
+        <p><b>College:</b> ITER</p>
+        <p><b>Branch:</b> CSE (Data Science)</p>
+        <p><b>Registration No:</b> 25E116C25</p>
+        <p><b>Year:</b> 1st Year</p>
+        <p><b>Phone No:</b> 9439687097</p>
+    </div>
+
+    <!-- Student Result -->
+    <div id="result" class="card" style="display:none;">
+        <h2>Student Result</h2>
+
+        <p>Calculus:7.5</p>
+        <p>Physics:7.5</p>
+        <p>ICP:7.5</p>
+        <p>ACT:7.5</p>
+        <p>UHV:6.5</p>
+        <p><b>CGPA:</b> 7.34</p>
+
+        <h3>📄 Result PDF</h3>
+
+        <iframe src="kanta-1st-sem-result.pdf" width="100%" height="400px" style="border-radius:10px;"></iframe>
+
+        <br><br>
+
+        <a href="kanta-1st-sem-result.pdf" download>
+            <button>Download PDF</button>
+        </a>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("shift");
+}
+
+function showSection(section){
+    document.getElementById("home").style.display="none";
+    document.getElementById("personal").style.display="none";
+    document.getElementById("result").style.display="none";
+
+    document.getElementById(section).style.display="block";
+}
+</script>
+
+</body>
+</html>
